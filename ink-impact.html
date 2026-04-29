@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ink & Impact — J&Kreations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#0E0E59;
+  --navy-mid:#13136a;
+  --gold:#F0BE3A;
+  --gold-light:#f5d06e;
+  --white:#ffffff;
+  --muted:rgba(255,255,255,0.62);
+  --sage:#52b788;
+  --forest:#1a3a2a;
+}
+body{font-family:'Jost',sans-serif;background:var(--navy);color:#fff;overflow-x:hidden;}
+
+/* NAV */
+.jk-nav{
+  background:rgba(14,14,89,0.97);
+  border-bottom:1px solid rgba(240,190,58,0.2);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 48px;position:sticky;top:0;z-index:100;
+  backdrop-filter:blur(10px);
+}
+.jk-nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:#fff;text-decoration:none;}
+.jk-nav-logo span{color:var(--gold);}
+.jk-nav-links{display:flex;gap:24px;list-style:none;flex-wrap:wrap;}
+.jk-nav-links a{text-decoration:none;color:var(--muted);font-size:0.8rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;}
+.jk-nav-links a:hover{color:var(--gold);}
+.jk-nav-cta{background:var(--gold)!important;color:var(--navy)!important;padding:8px 18px!important;border-radius:2px;font-weight:700!important;}
+
+/* HERO */
+.jk-hero{
+  width:100%;height:340px;
+  background-image:url('https://img1.wsimg.com/isteam/ip/e9ac9763-ce54-4c18-8a08-25307c5b43b3/blob-549c68d.png/:/');
+  background-size:cover;background-position:center center;
+  display:flex;align-items:flex-end;justify-content:center;
+  position:relative;
+}
+.jk-hero::after{content:'';position:absolute;inset:0;background:rgba(14,14,89,0.2);}
+.jk-hero-content{position:relative;z-index:2;text-align:center;padding:0 20px 28px;}
+.jk-tagline{font-size:0.82rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.95);font-weight:400;text-shadow:0 1px 6px rgba(0,0,0,0.8);}
+
+/* PAGE HERO (inner pages) */
+.jk-page-hero{
+  width:100%;height:260px;
+  background-image:url('https://img1.wsimg.com/isteam/ip/e9ac9763-ce54-4c18-8a08-25307c5b43b3/blob-549c68d.png/:/');
+  background-size:cover;background-position:center center;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.jk-page-hero::after{content:'';position:absolute;inset:0;background:rgba(14,14,89,0.6);}
+.jk-page-hero-content{position:relative;z-index:2;text-align:center;padding:0 20px;}
+.jk-page-eyebrow{font-size:0.72rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;font-weight:500;}
+.jk-page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;color:#fff;line-height:1.1;}
+.jk-page-rule{width:60px;height:2px;background:var(--gold);margin:14px auto;}
+.jk-page-sub{font-size:0.92rem;color:rgba(255,255,255,0.8);max-width:540px;font-weight:300;line-height:1.6;margin:0 auto;}
+
+/* TRUST BAR */
+.jk-trust{
+  background:var(--navy-mid);
+  border-top:1px solid rgba(240,190,58,0.2);
+  border-bottom:1px solid rgba(240,190,58,0.2);
+  padding:24px 20px;
+  display:flex;justify-content:center;gap:48px;flex-wrap:wrap;
+}
+.jk-trust-item{text-align:center;}
+.jk-trust-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--gold);line-height:1;display:block;}
+.jk-trust-label{font-size:0.7rem;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;margin-top:4px;display:block;}
+
+/* CARDS */
+.jk-cards-section{padding:64px 24px 72px;text-align:center;background:var(--navy);}
+.jk-eyebrow{font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;font-weight:500;}
+.jk-section-title{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:#fff;margin-bottom:10px;}
+.jk-section-sub{color:var(--muted);font-size:0.9rem;max-width:480px;margin:0 auto 44px;line-height:1.75;font-weight:300;}
+.jk-cards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:800px;margin:0 auto;}
+.jk-bold-card{
+  border-radius:16px;padding:52px 24px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-decoration:none;position:relative;overflow:hidden;
+  transition:transform 0.3s,box-shadow 0.3s;min-height:240px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.25),0 8px 32px rgba(0,0,0,0.3);
+}
+.jk-bold-card:hover{transform:translateY(-6px);box-shadow:inset 0 1px 0 rgba(255,255,255,0.3),0 28px 64px rgba(0,0,0,0.5);}
+.jk-bold-card::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.05);transition:background 0.3s;}
+.jk-bold-card:hover::before{background:rgba(0,0,0,0);}
+.jk-bc-hospital{background:radial-gradient(ellipse at 30% 30%,#40d4ff,#0888C9 55%,#054d80);}
+.jk-bc-school{background:radial-gradient(ellipse at 30% 30%,#ffa060,#ff5500 55%,#b83000);}
+.jk-bc-business{background:radial-gradient(ellipse at 30% 30%,#e080ff,#b030e0 55%,#6010a0);}
+.jk-bc-residential{background:radial-gradient(ellipse at 30% 30%,#40eebb,#00c090 55%,#007a55);}
+.jk-card-inner{position:relative;z-index:2;text-align:center;}
+.jk-card-emoji{font-size:3.8rem;margin-bottom:14px;filter:drop-shadow(0 2px 8px rgba(0,0,0,0.4));display:block;}
+.jk-card-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:8px;text-shadow:0 2px 6px rgba(0,0,0,0.3);}
+.jk-card-sub{font-size:0.8rem;color:rgba(255,255,255,0.75);line-height:1.5;margin-bottom:16px;}
+.jk-card-arrow{display:inline-block;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.35);color:#fff;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;padding:7px 18px;border-radius:20px;font-weight:500;opacity:0;transform:translateY(6px);transition:all 0.25s;}
+.jk-bold-card:hover .jk-card-arrow{opacity:1;transform:translateY(0);}
+
+/* CONTENT SECTIONS */
+.jk-content{max-width:860px;margin:0 auto;padding:56px 28px;}
+.jk-back{display:inline-block;margin-bottom:36px;color:var(--gold);font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;}
+.jk-section-label{font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;font-weight:500;}
+.jk-heading{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:600;color:#fff;margin-bottom:18px;line-height:1.2;}
+.jk-body{color:var(--muted);font-size:0.93rem;line-height:1.85;font-weight:300;}
+.jk-body p{margin-bottom:16px;}
+.jk-body strong{color:#fff;font-weight:500;}
+.jk-quote{background:rgba(240,190,58,0.07);border-left:3px solid var(--gold);border-radius:0 6px 6px 0;padding:22px 28px;margin:32px 0;}
+.jk-quote p{color:rgba(255,255,255,0.8);font-size:0.92rem;line-height:1.8;font-style:italic;margin:0;}
+.jk-quote cite{display:block;margin-top:8px;font-size:0.75rem;color:var(--gold);font-style:normal;}
+.jk-divider{border:none;border-top:1px solid rgba(240,190,58,0.12);margin:44px 0;}
+.jk-benefits{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin:32px 0;}
+.jk-benefit{background:rgba(255,255,255,0.04);border:1px solid rgba(240,190,58,0.15);border-radius:8px;padding:22px 18px;}
+.jk-benefit-icon{font-size:2rem;margin-bottom:10px;}
+.jk-benefit-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:#fff;margin-bottom:7px;}
+.jk-benefit-text{font-size:0.81rem;color:var(--muted);line-height:1.7;}
+
+/* GALLERY */
+.jk-gallery{background:var(--navy-mid);padding:56px 28px;border-top:1px solid rgba(240,190,58,0.12);border-bottom:1px solid rgba(240,190,58,0.12);}
+.jk-gallery-inner{max-width:960px;margin:0 auto;}
+.jk-gallery-header{text-align:center;margin-bottom:32px;}
+.jk-gallery-header h2{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:#fff;margin-bottom:8px;}
+.jk-gallery-header p{color:var(--muted);font-size:0.88rem;max-width:500px;margin:0 auto;line-height:1.7;}
+.jk-photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px;}
+.jk-photo-slot{aspect-ratio:4/3;border-radius:6px;border:2px dashed rgba(240,190,58,0.22);background:rgba(255,255,255,0.03);display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;position:relative;transition:border-color 0.2s;}
+.jk-photo-slot:hover{border-color:rgba(240,190,58,0.5);}
+.jk-photo-slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:4px;}
+.jk-slot-icon{font-size:1.6rem;opacity:0.25;margin-bottom:6px;}
+.jk-slot-label{font-size:0.7rem;color:rgba(240,190,58,0.4);text-align:center;padding:8px;letter-spacing:0.07em;text-transform:uppercase;}
+.jk-video-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:14px;}
+.jk-video-slot{aspect-ratio:16/9;border-radius:6px;border:2px dashed rgba(240,190,58,0.18);background:rgba(255,255,255,0.03);display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;position:relative;}
+.jk-video-slot video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.jk-play-icon{width:48px;height:48px;border-radius:50%;background:rgba(240,190,58,0.12);border:2px solid rgba(240,190,58,0.35);display:flex;align-items:center;justify-content:center;font-size:1.2rem;opacity:0.5;margin-bottom:8px;}
+.jk-video-label{font-size:0.7rem;color:rgba(240,190,58,0.4);letter-spacing:0.07em;text-transform:uppercase;text-align:center;}
+.jk-wallpen-link{display:inline-block;margin-top:20px;color:var(--gold);font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;font-weight:500;border-bottom:1px solid rgba(240,190,58,0.3);padding-bottom:2px;}
+
+/* ECO */
+.jk-eco{background:linear-gradient(135deg,#0d2018,var(--navy));border-top:1px solid rgba(106,171,122,0.2);border-bottom:1px solid rgba(106,171,122,0.2);padding:44px 20px;text-align:center;}
+.jk-eco h3{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:#fff;margin-bottom:10px;}
+.jk-eco h3 span{color:#7ac882;}
+.jk-eco p{color:var(--muted);font-size:0.88rem;max-width:520px;margin:0 auto 20px;line-height:1.75;font-weight:300;}
+.jk-pills{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;}
+.jk-pill{background:rgba(106,171,122,0.1);border:1px solid rgba(106,171,122,0.28);color:#8ecf9a;font-size:0.74rem;padding:6px 16px;border-radius:20px;}
+
+/* CTA */
+.jk-cta{background:var(--navy-mid);padding:56px 20px;text-align:center;border-top:1px solid rgba(240,190,58,0.12);}
+.jk-cta h2{font-family:'Cormorant Garamond',serif;font-size:1.9rem;color:#fff;margin-bottom:10px;}
+.jk-cta p{color:var(--muted);font-size:0.9rem;margin-bottom:28px;line-height:1.7;}
+.jk-cta-btn{display:inline-block;background:var(--gold);color:var(--navy);font-weight:700;font-size:0.9rem;letter-spacing:0.1em;text-transform:uppercase;padding:14px 38px;border-radius:2px;text-decoration:none;border:none;cursor:pointer;transition:background 0.2s;font-family:'Jost',sans-serif;}
+.jk-cta-btn:hover{background:var(--gold-light);}
+
+/* REFS */
+.jk-refs{margin-top:28px;padding-top:22px;border-top:1px solid rgba(240,190,58,0.15);}
+.jk-refs h4{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.jk-refs a{display:block;color:rgba(255,255,255,0.4);font-size:0.78rem;margin-bottom:6px;text-decoration:none;transition:color 0.2s;}
+.jk-refs a:hover{color:var(--gold);}
+
+/* STEPS */
+.jk-steps{margin:32px 0;}
+.jk-step{display:flex;gap:20px;margin-bottom:24px;align-items:flex-start;}
+.jk-step-num{width:40px;height:40px;border-radius:50%;background:var(--gold);color:var(--navy);font-weight:700;font-size:1rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.jk-step-text{padding-top:8px;}
+.jk-step-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:#fff;margin-bottom:4px;}
+.jk-step-desc{font-size:0.82rem;color:var(--muted);line-height:1.7;}
+
+/* FOOTER */
+.jk-footer{background:#07075a;padding:28px 40px;text-align:center;border-top:1px solid rgba(240,190,58,0.1);}
+.jk-foot-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:#fff;margin-bottom:6px;}
+.jk-foot-logo span{color:var(--gold);}
+.jk-footer p{font-size:0.73rem;color:rgba(255,255,255,0.28);letter-spacing:0.07em;}
+
+/* POPUP */
+#jk-popup-overlay{display:none;position:fixed;inset:0;z-index:9999;background:rgba(10,10,40,0.85);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:20px;opacity:0;transition:opacity 0.3s ease;}
+#jk-popup-overlay.jk-visible{opacity:1;}
+#jk-popup-box{background:var(--navy);border:1px solid rgba(240,190,58,0.25);border-radius:12px;padding:40px 44px;max-width:580px;width:100%;position:relative;box-shadow:0 32px 80px rgba(0,0,0,0.5);transform:translateY(20px);transition:transform 0.35s ease;max-height:90vh;overflow-y:auto;}
+#jk-popup-overlay.jk-visible #jk-popup-box{transform:translateY(0);}
+#jk-popup-close{position:absolute;top:14px;right:16px;background:rgba(255,255,255,0.07);border:none;color:rgba(255,255,255,0.5);font-size:1rem;width:30px;height:30px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+#jk-popup-close:hover{background:rgba(240,190,58,0.2);color:var(--gold);}
+.jk-popup-logo{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:14px;}
+.jk-popup-logo span{color:var(--gold);}
+.jk-popup-eyebrow{font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;font-weight:500;}
+.jk-popup-title{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:700;color:#fff;margin-bottom:6px;}
+.jk-popup-sub{font-size:0.83rem;color:rgba(255,255,255,0.5);margin-bottom:24px;line-height:1.6;font-weight:300;}
+.jk-form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+.jk-form-field{display:flex;flex-direction:column;gap:5px;}
+.jk-form-field label{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.45);font-weight:500;}
+.jk-form-field input,.jk-form-field select,.jk-form-field textarea{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:10px 13px;color:#fff;font-family:'Jost',sans-serif;font-size:0.86rem;outline:none;width:100%;transition:border-color 0.2s;}
+.jk-form-field input:focus,.jk-form-field select:focus,.jk-form-field textarea:focus{border-color:rgba(240,190,58,0.5);}
+.jk-form-field input::placeholder,.jk-form-field textarea::placeholder{color:rgba(255,255,255,0.22);}
+.jk-form-field select option{background:var(--navy);}
+.jk-form-field textarea{resize:vertical;min-height:90px;}
+.jk-form-full{grid-column:1/-1;margin-bottom:12px;}
+.jk-submit-btn{width:100%;padding:13px;background:var(--gold);color:var(--navy);border:none;border-radius:6px;font-family:'Jost',sans-serif;font-size:0.88rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;margin-top:4px;}
+.jk-submit-btn:hover{background:var(--gold-light);}
+.jk-privacy{text-align:center;font-size:0.7rem;color:rgba(255,255,255,0.22);margin-top:8px;}
+#jk-success{text-align:center;padding:20px 0;}
+.jk-success-icon{font-size:3rem;margin-bottom:14px;}
+#jk-success h3{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:#fff;margin-bottom:8px;}
+#jk-success p{color:rgba(255,255,255,0.55);font-size:0.88rem;line-height:1.7;margin-bottom:22px;}
+.jk-success-close{background:var(--gold);color:var(--navy);border:none;border-radius:4px;padding:11px 30px;font-family:'Jost',sans-serif;font-size:0.84rem;font-weight:700;cursor:pointer;}
+
+/* INK & IMPACT */
+.jki-body{font-family:'Jost',sans-serif;background:#f8f5ee;color:#1a1a2e;}
+.jki-hero{width:100%;min-height:360px;background:linear-gradient(160deg,#0d2218 0%,#1a3a2a 45%,#2d6a4f 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:60px 20px;}
+.jki-blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:0.22;}
+.jki-blob1{width:500px;height:500px;background:#52b788;top:-100px;left:-100px;}
+.jki-blob2{width:400px;height:400px;background:#F0BE3A;bottom:-120px;right:-80px;}
+.jki-hero-content{position:relative;z-index:2;text-align:center;max-width:640px;}
+.jki-hero-badge{display:inline-block;background:rgba(82,183,136,0.2);border:1px solid rgba(82,183,136,0.5);color:#b7e4c7;font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;padding:6px 18px;border-radius:20px;margin-bottom:20px;}
+.jki-hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,6vw,4.2rem);font-weight:700;color:#fff;line-height:1;margin-bottom:8px;}
+.jki-hero-title .amp{color:#52b788;}
+.jki-hero-rule{width:60px;height:2px;background:#52b788;margin:18px auto;opacity:0.8;}
+.jki-hero-sub{font-size:0.95rem;color:rgba(255,255,255,0.7);font-weight:300;line-height:1.7;}
+.jki-hero-sub em{color:#b7e4c7;font-style:normal;}
+.jki-featured-wrap{background:#fff;max-width:880px;margin:-44px auto 0;border-radius:12px;box-shadow:0 24px 60px rgba(26,58,42,0.14);position:relative;z-index:3;overflow:hidden;}
+.jki-featured-tag{background:#52b788;color:#fff;font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;padding:8px 20px;display:inline-block;font-weight:600;}
+.jki-featured-body{padding:36px 44px 44px;}
+.jki-feat-meta{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap;}
+.jki-feat-cat{background:rgba(45,106,79,0.08);color:#2d6a4f;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;padding:4px 12px;border-radius:12px;font-weight:600;border:1px solid rgba(45,106,79,0.2);}
+.jki-feat-date,.jki-feat-read{font-size:0.76rem;color:rgba(26,26,46,0.4);}
+.jki-feat-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;color:#1a1a2e;line-height:1.2;margin-bottom:14px;}
+.jki-feat-intro{font-size:0.95rem;color:rgba(26,26,46,0.62);line-height:1.8;font-weight:300;margin-bottom:20px;}
+.jki-feat-content{max-height:0;overflow:hidden;transition:max-height 0.6s ease;}
+.jki-feat-content.open{max-height:3000px;}
+.jki-feat-content p{font-size:0.91rem;color:rgba(26,26,46,0.65);line-height:1.85;margin-bottom:14px;}
+.jki-feat-content strong{color:#1a1a2e;font-weight:500;}
+.jki-art-highlight{background:rgba(45,106,79,0.06);border-left:3px solid #52b788;border-radius:0 6px 6px 0;padding:18px 22px;margin:22px 0;}
+.jki-art-highlight p{color:#1a1a2e!important;font-style:italic;margin:0!important;}
+.jki-art-highlight cite{display:block;margin-top:8px;font-size:0.74rem;color:#2d6a4f;font-style:normal;}
+.jki-art-refs{margin-top:24px;padding-top:18px;border-top:1px solid rgba(26,26,46,0.08);}
+.jki-art-refs h4{font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:#2d6a4f;margin-bottom:10px;font-weight:600;}
+.jki-art-refs a{display:block;color:rgba(26,26,46,0.4);font-size:0.76rem;margin-bottom:5px;text-decoration:none;transition:color 0.2s;}
+.jki-art-refs a:hover{color:#2d6a4f;}
+.jki-read-btn{display:inline-flex;align-items:center;gap:8px;background:#2d6a4f;color:#fff;font-size:0.8rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:11px 26px;border-radius:4px;border:none;cursor:pointer;transition:background 0.2s;margin-top:6px;font-family:'Jost',sans-serif;}
+.jki-read-btn:hover{background:#1a3a2a;}
+.jki-btn-arrow{display:inline-block;transition:transform 0.3s;}
+.jki-carousel-section{padding:68px 0 72px;background:linear-gradient(180deg,#f0ede5 0%,#e8f5ee 100%);}
+.jki-carousel-header{max-width:880px;margin:0 auto 32px;padding:0 28px;display:flex;align-items:baseline;justify-content:space-between;}
+.jki-carousel-header h2{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600;color:#1a3a2a;}
+.jki-carousel-hint{font-size:0.73rem;color:rgba(26,58,42,0.45);letter-spacing:0.08em;text-transform:uppercase;}
+.jki-track-wrap{overflow-x:auto;padding:8px 28px 24px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;cursor:grab;}
+.jki-track-wrap:active{cursor:grabbing;}
+.jki-track-wrap::-webkit-scrollbar{height:4px;}
+.jki-track-wrap::-webkit-scrollbar-track{background:rgba(45,106,79,0.08);border-radius:2px;}
+.jki-track-wrap::-webkit-scrollbar-thumb{background:#52b788;border-radius:2px;}
+.jki-track{display:flex;gap:18px;width:max-content;}
+.jki-card{width:310px;scroll-snap-align:start;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 6px 24px rgba(26,58,42,0.08);transition:transform 0.25s,box-shadow 0.25s,width 0.3s;cursor:pointer;flex-shrink:0;}
+.jki-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(26,58,42,0.13);}
+.jki-card-bar{height:5px;width:100%;}
+.bar-green{background:linear-gradient(to right,#2d6a4f,#52b788);}
+.bar-gold{background:linear-gradient(to right,#c49a20,#F0BE3A);}
+.bar-teal{background:linear-gradient(to right,#0888C9,#52b788);}
+.jki-card-body{padding:22px;}
+.jki-card-meta{display:flex;gap:10px;align-items:center;margin-bottom:10px;}
+.jki-card-cat{font-size:0.66rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;padding:3px 10px;border-radius:10px;}
+.cat-eco{background:rgba(45,106,79,0.09);color:#2d6a4f;border:1px solid rgba(45,106,79,0.2);}
+.cat-health{background:rgba(8,136,201,0.09);color:#0888C9;border:1px solid rgba(8,136,201,0.2);}
+.cat-biz{background:rgba(196,154,32,0.1);color:#c49a20;border:1px solid rgba(196,154,32,0.25);}
+.jki-card-date{font-size:0.7rem;color:rgba(26,26,46,0.38);}
+.jki-card-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:#1a1a2e;line-height:1.3;margin-bottom:10px;}
+.jki-card-preview{font-size:0.81rem;color:rgba(26,26,46,0.58);line-height:1.7;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+.jki-card-full{max-height:0;overflow:hidden;transition:max-height 0.5s ease;font-size:0.81rem;color:rgba(26,26,46,0.62);line-height:1.75;}
+.jki-card-full.open{max-height:2000px;}
+.jki-card-full p{margin-bottom:12px;}
+.jki-card-full strong{color:#1a1a2e;font-weight:500;}
+.jki-card-btn{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:0.76rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#2d6a4f;background:none;border:none;cursor:pointer;padding:0;font-family:'Jost',sans-serif;transition:color 0.2s;}
+.jki-card-btn:hover{color:#1a3a2a;}
+.jki-card-btn .carr{display:inline-block;transition:transform 0.3s;}
+.jki-card-btn.open .carr{transform:rotate(180deg);}
+.jki-placeholder{background:rgba(45,106,79,0.04);border:2px dashed rgba(45,106,79,0.18);box-shadow:none;display:flex;align-items:center;justify-content:center;min-height:280px;}
+.jki-placeholder:hover{transform:none;box-shadow:none;}
+.jki-mission{background:linear-gradient(135deg,#1a3a2a,#0d2218);padding:52px 20px;text-align:center;border-top:3px solid #52b788;}
+.jki-mission h2{font-family:'Cormorant Garamond',serif;font-size:1.9rem;color:#fff;margin-bottom:10px;}
+.jki-mission h2 span{color:#b7e4c7;}
+.jki-mission p{color:rgba(255,255,255,0.62);font-size:0.9rem;max-width:540px;margin:0 auto 24px;line-height:1.8;font-weight:300;}
+.jki-mpills{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;}
+.jki-mpill{background:rgba(82,183,136,0.12);border:1px solid rgba(82,183,136,0.3);color:#b7e4c7;font-size:0.73rem;padding:6px 16px;border-radius:20px;}
+.jki-cta{background:#f8f5ee;padding:56px 20px;text-align:center;border-top:1px solid rgba(26,26,46,0.08);}
+.jki-cta h2{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:#1a3a2a;margin-bottom:10px;}
+.jki-cta p{color:rgba(26,26,46,0.55);font-size:0.9rem;margin-bottom:26px;}
+.jki-cta-btn{display:inline-block;background:#0E0E59;color:#fff;font-weight:600;font-size:0.88rem;letter-spacing:0.1em;text-transform:uppercase;padding:14px 36px;border-radius:2px;text-decoration:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;transition:background 0.2s;}
+.jki-cta-btn:hover{background:#1a3a2a;}
+footer.jki-footer{background:#1a3a2a;padding:28px 40px;text-align:center;border-top:1px solid rgba(82,183,136,0.2);}
+.jki-foot-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:#fff;margin-bottom:6px;}
+.jki-foot-logo span{color:#F0BE3A;}
+footer.jki-footer p{font-size:0.73rem;color:rgba(255,255,255,0.28);letter-spacing:0.07em;}
+
+@media(max-width:600px){
+  .jk-nav{padding:12px 20px;}
+  .jk-nav-links{gap:12px;}
+  .jk-nav-links a{font-size:0.72rem;}
+  .jk-cards-grid{grid-template-columns:1fr;}
+  .jk-photo-grid{grid-template-columns:repeat(2,1fr);}
+  .jk-video-grid{grid-template-columns:1fr;}
+  .jk-benefits{grid-template-columns:1fr;}
+  .jk-form-row{grid-template-columns:1fr;}
+  #jk-popup-box{padding:28px 20px;}
+  .jki-featured-body{padding:24px 20px 28px;}
+}
+</style>
+</head>
+<body class="jki-body">
+<nav class="jk-nav">
+  <a href="/" class="jk-nav-logo">J<span>&</span>Kreations</a>
+  <ul class="jk-nav-links">
+    <li><a href="/hospitals.html">Hospitals</a></li>
+    <li><a href="/schools.html">Schools</a></li>
+    <li><a href="/business.html">Business</a></li>
+    <li><a href="/residential.html">Residential</a></li>
+    <li><a href="/ink-impact.html">Ink &amp; Impact</a></li>
+    <li><a href="#" class="jk-nav-cta" onclick="jkOpenPopup();return false;">Free Consultation</a></li>
+  </ul>
+</nav>
+
+<section class="jki-hero">
+  <div class="jki-blob jki-blob1"></div>
+  <div class="jki-blob jki-blob2"></div>
+  <div class="jki-hero-content">
+    <div class="jki-hero-badge">🌿 The J&amp;Kreations Journal</div>
+    <h1 class="jki-hero-title">Ink <span class="amp">&amp;</span> Impact</h1>
+    <div class="jki-hero-rule"></div>
+    <p class="jki-hero-sub">Where art meets <em>evidence</em>. Research-backed insights on how the spaces we inhabit shape the way we heal, learn, work, and live.</p>
+  </div>
+</section>
+
+<div style="padding:0 20px;max-width:924px;margin:0 auto;">
+  <div class="jki-featured-wrap">
+    <span class="jki-featured-tag">✦ Latest Article</span>
+    <div class="jki-featured-body">
+      <div class="jki-feat-meta">
+        <span class="jki-feat-cat">Education &amp; Learning</span>
+        <span class="jki-feat-date">April 2025</span>
+        <span class="jki-feat-read">· 4 min read</span>
+      </div>
+      <h2 class="jki-feat-title">Your School's Walls Are Already Teaching — The Question Is What</h2>
+      <p class="jki-feat-intro">Blank walls aren't neutral. Research shows that what surrounds students every day has a measurable impact on their attention, creativity, anxiety levels, and academic performance. Here's what the science says — and what one Utah company is doing about it.</p>
+      <div class="jki-feat-content" id="jki-feat-content">
+        <p>The landmark <strong>Holistic Evidence and Design (HEAD) study</strong>, conducted at the University of Salford, followed 3,766 students across 153 classrooms and found that the physical environment accounted for significant variation in academic progress. Visually stimulating classroom walls were found to foster better learning outcomes in subjects including mathematics.</p>
+        <div class="jki-art-highlight">
+          <p>"The quality of the classroom environment has a significant impact on children's learning progress. Well-designed primary school environments can boost learning progress in reading, writing, and math by an average of 16% in a single year."</p>
+          <cite>— HEAD Study, University of Salford, UK</cite>
+        </div>
+        <p>A separate body of research found that <strong>nature-themed imagery specifically reduced cortisol levels and anxiety responses in children</strong> — making these themes particularly powerful choices for learning environments where stress is a concern.</p>
+        <p>At J&amp;Kreations, we use our WallPen vertical printing technology to bring these evidence-based design principles to Utah schools. Our plant-based, UV-cured inks are completely non-toxic, microplastic-free, and odorless. Standard school cinder block walls print beautifully. <strong>The result: environments that don't just look better — they perform better.</strong></p>
+        <div class="jki-art-refs">
+          <h4>Sources &amp; Further Reading</h4>
+          <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5394432/" target="_blank">↗ The Impact of Classroom Design on Student Learning — PMC / NCBI</a>
+          <a href="https://www.researchgate.net/publication/379860556_Wallings_The_early_childhood_storyings_they_tell" target="_blank">↗ Wallings: The Early Childhood Storyings They Tell — ResearchGate</a>
+          <a href="https://www.researchgate.net/publication/352910365_The_Effects_of_Wall_Color_on_Students_Attention_Levels_An_International_School_s_Perspective" target="_blank">↗ The Effects of Wall Color on Students' Attention Levels — ResearchGate</a>
+        </div>
+      </div>
+      <button class="jki-read-btn" id="jki-feat-btn" onclick="jkiToggleFeat()">
+        <span class="jki-btn-text">Read Full Article</span>
+        <span class="jki-btn-arrow">↓</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<section class="jki-carousel-section" style="margin-top:60px;">
+  <div class="jki-carousel-header">
+    <h2>More from Ink &amp; Impact</h2>
+    <span class="jki-carousel-hint">← scroll to explore →</span>
+  </div>
+  <div class="jki-track-wrap" id="jki-carousel">
+    <div class="jki-track">
+      <div class="jki-card">
+        <div class="jki-card-bar bar-teal"></div>
+        <div class="jki-card-body">
+          <div class="jki-card-meta"><span class="jki-card-cat cat-health">Healthcare</span><span class="jki-card-date">March 2025</span></div>
+          <h3 class="jki-card-title">Why the Room Matters: The Hidden Science of Healing Environments</h3>
+          <p class="jki-card-preview">A hospital room is not just a place to wait for recovery. The physical environment directly influences outcomes — from pain perception to recovery speed.</p>
+          <div class="jki-card-full" id="jki-c2">
+            <p>A landmark study by researcher Roger Ulrich found that <strong>patients recovering from surgery who had a window view of trees required less pain medication and were discharged nearly a full day sooner</strong> than patients facing a blank wall.</p>
+            <p>More recent research shows that <strong>color, artwork, and visual complexity in patient rooms reduce perceived pain intensity, lower heart rate and blood pressure, and decrease the use of anxiety medication.</strong></p>
+            <p>For pediatric patients, research demonstrates that <strong>themed room environments significantly reduce procedure-related distress</strong> and improve cooperation during medical interventions.</p>
+            <div class="jki-art-refs">
+              <h4>Sources</h4>
+              <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1021989/" target="_blank">↗ Ulrich (1984) — View Through a Window May Influence Recovery</a>
+              <a href="https://journals.sagepub.com/home/her" target="_blank">↗ Health Environments Research &amp; Design Journal</a>
+            </div>
+          </div>
+          <button class="jki-card-btn" onclick="jkiToggleCard('jki-c2',this)">Read more <span class="carr">↓</span></button>
+        </div>
+      </div>
+      <div class="jki-card">
+        <div class="jki-card-bar bar-gold"></div>
+        <div class="jki-card-body">
+          <div class="jki-card-meta"><span class="jki-card-cat cat-biz">Business &amp; Branding</span><span class="jki-card-date">February 2025</span></div>
+          <h3 class="jki-card-title">The $0 Marketing Wall: How a Single Mural Can Earn Its Own Keep</h3>
+          <p class="jki-card-preview">A well-designed wall is not decoration. It is a business asset — one that attracts customers, generates social media content, and inspires the team every day.</p>
+          <div class="jki-card-full" id="jki-c3">
+            <p>Research demonstrates that <strong>store environments with distinctive visual design elements increase dwell time, purchase likelihood, and brand recall</strong> significantly compared to generic environments.</p>
+            <p>A 2023 survey found that <strong>98% of consumers create digital or social media content at live experiences</strong> — business environments with photogenic features consistently generate organic social media reach worth thousands in paid advertising.</p>
+            <p>A study by Gensler found that <strong>workers in well-designed environments are 33% more productive</strong> — reducing costly turnover while improving output.</p>
+            <div class="jki-art-refs">
+              <h4>Sources</h4>
+              <a href="https://www.sciencedirect.com/journal/journal-of-retailing-and-consumer-services" target="_blank">↗ Journal of Retailing and Consumer Services</a>
+              <a href="https://www.gensler.com/research-insight/workplace-survey" target="_blank">↗ Gensler Workplace Survey</a>
+            </div>
+          </div>
+          <button class="jki-card-btn" onclick="jkiToggleCard('jki-c3',this)">Read more <span class="carr">↓</span></button>
+        </div>
+      </div>
+      <div class="jki-card">
+        <div class="jki-card-bar bar-green"></div>
+        <div class="jki-card-body">
+          <div class="jki-card-meta"><span class="jki-card-cat cat-eco">Eco &amp; Safety</span><span class="jki-card-date">January 2025</span></div>
+          <h3 class="jki-card-title">Vinyl vs. Direct Print: What Your Walls Are Actually Absorbing</h3>
+          <p class="jki-card-preview">For hospitals, schools, and homes with children — the differences between vinyl wraps and direct print matter more than most people realize.</p>
+          <div class="jki-card-full" id="jki-c4">
+            <p>Traditional vinyl wall wraps are made from PVC — a plastic-based material that can <strong>off-gas volatile organic compounds (VOCs)</strong> including formaldehyde precursors — of particular concern in enclosed spaces like hospital rooms and classrooms.</p>
+            <p>Beyond off-gassing, <strong>vinyl seams create microbial harborage points</strong> — gaps where bacteria and pathogens accumulate. For healthcare settings, this is a genuine infection control concern.</p>
+            <p><strong>Direct UV-cured wall printing uses plant-based inks applied directly onto the wall with no adhesives, no seams, no PVC, and no off-gassing.</strong> For sensitive spaces, this is not just an aesthetic choice. It is a health decision.</p>
+            <div class="jki-art-refs">
+              <h4>Sources</h4>
+              <a href="https://onlinelibrary.wiley.com/journal/16000668" target="_blank">↗ Indoor Air — International Journal of Indoor Environment and Health</a>
+              <a href="https://www.epa.gov/indoor-air-quality-iaq/volatile-organic-compounds-impact-indoor-air-quality" target="_blank">↗ EPA — Volatile Organic Compounds &amp; Indoor Air Quality</a>
+            </div>
+          </div>
+          <button class="jki-card-btn" onclick="jkiToggleCard('jki-c4',this)">Read more <span class="carr">↓</span></button>
+        </div>
+      </div>
+      <div class="jki-card jki-placeholder">
+        <div style="text-align:center;padding:28px 18px;">
+          <div style="font-size:2.2rem;margin-bottom:10px;opacity:0.28;">✍️</div>
+          <div style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(45,106,79,0.38);font-weight:600;">Next Article Coming Soon</div>
+          <div style="font-size:0.73rem;color:rgba(26,26,46,0.32);margin-top:7px;line-height:1.6;">Betty adds new articles<br>on a regular schedule</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="jki-mission">
+  <h2>Art That Leaves the World <span>Better</span></h2>
+  <p>Every article in Ink &amp; Impact reflects something we believe deeply — that the spaces where people heal and learn should be beautiful, safe, and sustainably made.</p>
+  <div class="jki-mpills">
+    <span class="jki-mpill">🌿 Plant-Based Inks</span>
+    <span class="jki-mpill">✓ Microplastic Free</span>
+    <span class="jki-mpill">✓ Vegan &amp; Non-Toxic</span>
+    <span class="jki-mpill">✓ No PVC or Vinyl</span>
+    <span class="jki-mpill">✓ UV-Cured &amp; Odorless</span>
+  </div>
+</div>
+
+<div class="jki-cta">
+  <h2>Ready to See What's Possible?</h2>
+  <p>Bring the research to life in your own space. Every project starts with a free consultation.</p>
+  <button class="jki-cta-btn" onclick="jkOpenPopup()">Request a Free Consultation</button>
+</div>
+
+<script>
+function jkiToggleFeat(){{var c=document.getElementById('jki-feat-content');var b=document.getElementById('jki-feat-btn');var o=c.classList.toggle('open');b.classList.toggle('open',o);b.querySelector('.jki-btn-text').textContent=o?'Collapse Article':'Read Full Article';b.querySelector('.jki-btn-arrow').textContent=o?'↑':'↓';}}
+function jkiToggleCard(id,btn){{var c=document.getElementById(id);var o=c.classList.toggle('open');btn.classList.toggle('open',o);btn.childNodes[0].textContent=o?'Collapse ':'Read more ';btn.querySelector('.carr').textContent=o?'↑':'↓';var card=btn.closest('.jki-card');card.style.width=o?'460px':'310px';}}
+var car=document.getElementById('jki-carousel');if(car){{var isD=false,sX,sL;car.addEventListener('mousedown',function(e){{isD=true;sX=e.pageX-car.offsetLeft;sL=car.scrollLeft;}});car.addEventListener('mouseleave',function(){{isD=false;}});car.addEventListener('mouseup',function(){{isD=false;}});car.addEventListener('mousemove',function(e){{if(!isD)return;e.preventDefault();var x=e.pageX-car.offsetLeft;car.scrollLeft=sL-(x-sX)*1.5;}});}}
+</script>
+<footer class="jk-footer">
+  <div class="jk-foot-logo">J<span>&</span>Kreations</div>
+  <p>© 2025 J&Kreations LLC · Morgan, Utah · jkreations.com</p>
+</footer>
+<div id="jk-popup-overlay" onclick="jkCloseOutside(event)">
+  <div id="jk-popup-box">
+    <button id="jk-popup-close" onclick="jkClosePopup()">✕</button>
+    <div class="jk-popup-logo">J<span>&</span>Kreations</div>
+    <div class="jk-popup-eyebrow">Free Consultation</div>
+    <h2 class="jk-popup-title">Let's Transform Your Space</h2>
+    <p class="jk-popup-sub">Tell us about your project and we'll be in touch within one business day.</p>
+    <form id="jk-form" onsubmit="jkSubmit(event)">
+      <div class="jk-form-row">
+        <div class="jk-form-field"><label>Your Name *</label><input type="text" name="name" placeholder="Jane Smith" required></div>
+        <div class="jk-form-field"><label>Email Address *</label><input type="email" name="email" placeholder="jane@example.com" required></div>
+      </div>
+      <div class="jk-form-row">
+        <div class="jk-form-field"><label>Phone Number</label><input type="tel" name="phone" placeholder="(801) 555-0000"></div>
+        <div class="jk-form-field"><label>Type of Space *</label>
+          <select name="space" required>
+            <option value="" disabled selected>Select one...</option>
+            <option>Hospital / Medical Facility</option>
+            <option>School / Library</option>
+            <option>Business / Commercial</option>
+            <option>Residential / Home</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="jk-form-row">
+        <div class="jk-form-field jk-form-full"><label>Tell us about your project</label>
+        <textarea name="message" placeholder="What space are you looking to transform?"></textarea></div>
+      </div>
+      <button type="submit" class="jk-submit-btn">Send My Request ✦</button>
+      <p class="jk-privacy">We respect your privacy. No spam, ever.</p>
+    </form>
+    <div id="jk-success" style="display:none;">
+      <div class="jk-success-icon">🎨</div>
+      <h3>We got it — thank you!</h3>
+      <p>Kristina will be in touch within one business day.</p>
+      <button class="jk-success-close" onclick="jkClosePopup()">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function jkOpenPopup(){var o=document.getElementById('jk-popup-overlay');o.style.display='flex';setTimeout(function(){o.classList.add('jk-visible');},10);document.body.style.overflow='hidden';}
+function jkClosePopup(){var o=document.getElementById('jk-popup-overlay');o.classList.remove('jk-visible');setTimeout(function(){o.style.display='none';document.body.style.overflow='';},300);}
+function jkCloseOutside(e){if(e.target===document.getElementById('jk-popup-overlay'))jkClosePopup();}
+async function jkSubmit(e){
+  e.preventDefault();
+  var btn=document.querySelector('.jk-submit-btn');
+  var form=document.getElementById('jk-form');
+  var data=new FormData(form);
+  btn.textContent='Sending...';btn.disabled=true;
+  try{
+    var res=await fetch('https://formspree.io/f/mojralbz',{
+      method:'POST',
+      body:JSON.stringify({
+        name:data.get('name'),
+        email:data.get('email'),
+        phone:data.get('phone')||'Not provided',
+        space:data.get('space'),
+        message:data.get('message')||'No message',
+        _replyto:data.get('email'),
+        _subject:'New Consultation Request — J&Kreations'
+      }),
+      headers:{'Content-Type':'application/json','Accept':'application/json'}
+    });
+    if(res.ok){
+      form.style.display='none';
+      document.getElementById('jk-success').style.display='block';
+    }else{throw new Error();}
+  }catch(err){
+    btn.textContent='Send My Request ✦';
+    btn.disabled=false;
+    alert('Something went wrong. Please email kristina@jkreations.com directly.');
+  }
+}
+</script>
+</body>
+</html>
