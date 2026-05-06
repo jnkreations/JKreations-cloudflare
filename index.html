@@ -209,73 +209,56 @@ body{font-family:'Jost',sans-serif;background:var(--navy);color:#fff;overflow-x:
   <div class="jk-trust-item"><span class="jk-trust-num">10+</span><span class="jk-trust-label">Years Durability</span></div>
 </div>
 
-<!-- CARDS + VIDEO WRAPPER — video is the background of this whole block -->
-<div style="position:relative;background:var(--navy);">
+<!-- CARDS — normal flow, z-index above video -->
+<section class="jk-cards-section" style="position:relative;z-index:2;margin-bottom:0;padding-bottom:64px;">
+  <div class="jk-eyebrow">Who We Serve</div>
+  <h2 class="jk-section-title">Find Your Space</h2>
+  <p class="jk-section-sub">Every wall tells a story. Choose your environment and discover how J&amp;Kreations can transform it into something extraordinary.</p>
+  <div class="jk-cards-grid">
+    <a href="hospitals.html" class="jk-bold-card jk-bc-hospital">
+      <div class="jk-card-inner"><span class="jk-card-emoji">&#127973;</span><div class="jk-card-title">Healing Spaces</div><div class="jk-card-sub">Hospitals &amp; Medical Facilities</div><span class="jk-card-arrow">Explore &rarr;</span></div>
+    </a>
+    <a href="schools.html" class="jk-bold-card jk-bc-school">
+      <div class="jk-card-inner"><span class="jk-card-emoji">&#127891;</span><div class="jk-card-title">Learning Environments</div><div class="jk-card-sub">Schools &amp; Libraries</div><span class="jk-card-arrow">Explore &rarr;</span></div>
+    </a>
+    <a href="business.html" class="jk-bold-card jk-bc-business">
+      <div class="jk-card-inner"><span class="jk-card-emoji">&#127970;</span><div class="jk-card-title">Bold Branding</div><div class="jk-card-sub">Offices &amp; Commercial</div><span class="jk-card-arrow">Explore &rarr;</span></div>
+    </a>
+    <a href="residential.html" class="jk-bold-card jk-bc-residential">
+      <div class="jk-card-inner"><span class="jk-card-emoji">&#127968;</span><div class="jk-card-title">Your Personal Masterpiece</div><div class="jk-card-sub">Homes &amp; Residential</div><span class="jk-card-arrow">Explore &rarr;</span></div>
+    </a>
+  </div>
+</section>
 
-  <!-- VIDEO sits at the bottom of this wrapper, behind the cards -->
-  <div style="
-    position:absolute;
-    bottom:0;left:50%;
-    transform:translateX(-50%);
-    width:calc(100% - 96px);
-    max-width:1200px;
-    height:500px;
-    overflow:hidden;
-    border-radius:12px;
-  ">
-    <!-- Very light overlay — just enough to blend edges -->
-    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,14,89,0.55) 0%,rgba(14,14,89,0.05) 30%,rgba(14,14,89,0.05) 70%,rgba(14,14,89,0.7) 100%);z-index:1;pointer-events:none;"></div>
-    <!-- YouTube video -->
+<!-- VIDEO — negative margin pulls it up behind just the bottom of cards -->
+<div style="padding:0 48px;position:relative;z-index:1;margin-top:-80px;">
+  <div style="width:100%;max-width:1200px;margin:0 auto;height:500px;overflow:hidden;border-radius:12px;position:relative;">
     <iframe
       src="https://www.youtube-nocookie.com/embed/z98xMQm8PN4?autoplay=1&mute=1&loop=1&playlist=z98xMQm8PN4&controls=0&modestbranding=1&playsinline=1&rel=0&showinfo=0"
       frameborder="0"
       allow="autoplay; encrypted-media"
       allowfullscreen
-      style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:200%;height:200%;z-index:0;pointer-events:none;">
+      style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:200%;height:200%;pointer-events:none;">
     </iframe>
   </div>
+</div>
 
-  <!-- CARDS sit on top of the video via z-index -->
-  <section class="jk-cards-section" style="position:relative;z-index:2;">
-    <div class="jk-eyebrow">Who We Serve</div>
-    <h2 class="jk-section-title">Find Your Space</h2>
-    <p class="jk-section-sub">Every wall tells a story. Choose your environment and discover how J&amp;Kreations can transform it into something extraordinary.</p>
-    <div class="jk-cards-grid">
-      <a href="hospitals.html" class="jk-bold-card jk-bc-hospital">
-        <div class="jk-card-inner"><span class="jk-card-emoji">&#127973;</span><div class="jk-card-title">Healing Spaces</div><div class="jk-card-sub">Hospitals &amp; Medical Facilities</div><span class="jk-card-arrow">Explore &rarr;</span></div>
-      </a>
-      <a href="schools.html" class="jk-bold-card jk-bc-school">
-        <div class="jk-card-inner"><span class="jk-card-emoji">&#127891;</span><div class="jk-card-title">Learning Environments</div><div class="jk-card-sub">Schools &amp; Libraries</div><span class="jk-card-arrow">Explore &rarr;</span></div>
-      </a>
-      <a href="business.html" class="jk-bold-card jk-bc-business">
-        <div class="jk-card-inner"><span class="jk-card-emoji">&#127970;</span><div class="jk-card-title">Bold Branding</div><div class="jk-card-sub">Offices &amp; Commercial</div><span class="jk-card-arrow">Explore &rarr;</span></div>
-      </a>
-      <a href="residential.html" class="jk-bold-card jk-bc-residential">
-        <div class="jk-card-inner"><span class="jk-card-emoji">&#127968;</span><div class="jk-card-title">Your Personal Masterpiece</div><div class="jk-card-sub">Homes &amp; Residential</div><span class="jk-card-arrow">Explore &rarr;</span></div>
-      </a>
-    </div>
-    <!-- Spacer so video is visible below cards -->
-    <div style="height:160px;"></div>
-  </section>
-
-  <!-- PRINTED WITH PURPOSE — at bottom of the whole block -->
-  <div style="position:relative;z-index:3;background:linear-gradient(to top,rgba(14,14,89,0.98) 60%,transparent);padding:48px 20px 44px;text-align:center;">
-    <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:#fff;margin-bottom:10px;">
-      Printed with <span style="color:#7ac882;">Purpose</span>
-    </h3>
-    <p style="color:rgba(255,255,255,0.6);font-size:0.88rem;max-width:520px;margin:0 auto 20px;line-height:1.75;font-weight:300;">
-      Our plant-based, UV-cured inks are vegan, odorless, and safe for even the most sensitive environments &mdash; including pediatric wards, patient rooms, and elementary classrooms.
-    </p>
-    <div class="jk-pills">
-      <span class="jk-pill">&#127807; Plant-Based Inks</span>
-      <span class="jk-pill">&#10003; Vegan &amp; Odorless</span>
-      <span class="jk-pill">&#10003; Hospital Safe</span>
-      <span class="jk-pill">&#10003; No Vinyl &middot; No Wallpaper</span>
-      <span class="jk-pill">&#10003; Fully Cleanable</span>
-    </div>
+<!-- PRINTED WITH PURPOSE -->
+<div style="background:var(--navy);padding:44px 20px;text-align:center;">
+  <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:#fff;margin-bottom:10px;">
+    Printed with <span style="color:#7ac882;">Purpose</span>
+  </h3>
+  <p style="color:rgba(255,255,255,0.6);font-size:0.88rem;max-width:520px;margin:0 auto 20px;line-height:1.75;font-weight:300;">
+    Our plant-based, UV-cured inks are vegan, odorless, and safe for even the most sensitive environments &mdash; including pediatric wards, patient rooms, and elementary classrooms.
+  </p>
+  <div class="jk-pills">
+    <span class="jk-pill">&#127807; Plant-Based Inks</span>
+    <span class="jk-pill">&#10003; Vegan &amp; Odorless</span>
+    <span class="jk-pill">&#10003; Hospital Safe</span>
+    <span class="jk-pill">&#10003; No Vinyl &middot; No Wallpaper</span>
+    <span class="jk-pill">&#10003; Fully Cleanable</span>
   </div>
-
-</div><!-- end cards+video wrapper -->
+</div>
 
 <!-- CTA -->
 <div class="jk-cta">
